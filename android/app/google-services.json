@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "588195176191",
+    "project_id": "bdeals-1da13",
+    "storage_bucket": "bdeals-1da13.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:588195176191:android:ad236a94a2e5dcf8f0f6ca",
+        "android_client_info": {
+          "package_name": "com.example.bdeals"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA73r9E_wODbSevhzBunO1ssZVa_2esp6o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
