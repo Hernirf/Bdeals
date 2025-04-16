@@ -201,7 +201,8 @@ class _SignInState extends State<loginPage> {
                       if (User.userAuth!.email == _email.text) {
                         await User.setIDLogin();
                         print(User.idlogin);
-                        Navigator.pushNamed(context, "/splash");
+                        await User.getMyData();
+                        Navigator.pushNamed(context, "/home");
                         _email.dispose();
                         _pass.dispose();
                       }

@@ -1,12 +1,27 @@
+import 'dart:math';
+
 import 'package:bdeals/Pages/tes.dart';
+import 'package:bdeals/Provider/Coment.dart';
+import 'package:bdeals/Provider/Products.dart';
 import 'package:bdeals/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:bdeals/Provider/Users.dart';
+// import 'package:bdeals/Provider/Products.dart';
+
 import 'package:bdeals/Pages/loginPage.dart';
 import 'package:bdeals/Pages/registerPage.dart';
+import 'package:bdeals/Pages/camera.dart';
+
 // import 'Provider/postingan.dart';
+import 'package:bdeals/Pages/createPage.dart';
+import 'package:bdeals/Pages/detailprodukpage.dart';
+import 'package:bdeals/Pages/homePage.dart';
+import 'package:bdeals/Pages/profilePage.dart';
+import 'package:bdeals/Pages/settingPage.dart';
+import 'package:bdeals/Pages/settingAkunPage.dart';
+import 'package:bdeals/Pages/settingBahasaPage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +32,9 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => UserProvider()),
-        // ChangeNotifierProvider(create: (context) => postinganProvider()),
+        ChangeNotifierProvider(create: (context) => ProductProvider()),
+        ChangeNotifierProvider(create: (context) => Comentprovider()),
+
         // ChangeNotifierProvider(create: (context) => ThemeProvider()),
       ],
       // Inisialisasi DataProvider
@@ -33,15 +50,21 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final User = Provider.of<UserProvider>(context, listen: false);
 
+
     return MaterialApp(
-      title: 'Tiki Taka',
+      title: 'Bdeals',
       debugShowCheckedModeBanner: false,
       // theme: Provider.of<ThemeProvider>(context).getTheme(),
       routes: {
         
         '/': (context) => loginPage(),
+        'profilePage': (context) => Profile(),
+        // 'createPage': (context) => CreateProduk(),
         '/signUp': (context) => SignUp(),
         '/splash': (context) => SplashScreen(),
+        '/home': (context) => beranda(),
+
+        
 
       
         //'/tes': (context) => tessW(),

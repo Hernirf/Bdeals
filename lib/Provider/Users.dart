@@ -14,9 +14,37 @@ class UserProvider extends ChangeNotifier{
   String get idlogin => _idLogin;
   Userr userSearch = Userr();
   List<Userr> listUser = [];
+  Userr userLogin = Userr();
+
 
   bool searchPage = false;
 
+
+  Future<void> getMyData() async {
+  // searchPage = false;
+  var collectionReference = FirebaseFirestore.instance.collection('Bdeals_Users');
+  
+  // MyProduct.clear();
+ await collectionReference.get().then((QuerySnapshot querySnapshot) {
+    querySnapshot.docs.forEach((doc) {
+       if (doc.id.toString().contains(idlogin)){
+           userLogin = Userr(
+              username : doc['username'],
+              email : doc['email'],
+              pass : doc['pass'],
+              bio : doc['bio'],
+              path_potoProfile : doc['path_potoProfile'],
+              id : idlogin,
+              noWA : doc['nomorWA'],
+          );
+    }
+
+    });
+  })
+  .catchError((error) {
+    print("Error: $error");
+  });
+}
 
 
 Future<dynamic> getFieldById(String fieldName, String id) async {
@@ -157,11 +185,6 @@ Future<void> searchFirestore(String searchTerm) async {
   .catchError((error) {
     print("Error: $error");
   });
-
-  
-
-
-
 }
 
 Future<void> otherProfile(String id) async {

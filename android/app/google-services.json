@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "588195176191",
-    "project_id": "bdeals-1da13",
-    "storage_bucket": "bdeals-1da13.firebasestorage.app"
+    "project_number": "716239401584",
+    "project_id": "pa-tikitaka",
+    "storage_bucket": "pa-tikitaka.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:588195176191:android:ad236a94a2e5dcf8f0f6ca",
+        "mobilesdk_app_id": "1:716239401584:android:58ed0b4bbb5439d94efab5",
         "android_client_info": {
           "package_name": "com.example.bdeals"
         }
@@ -15,7 +15,45 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyA73r9E_wODbSevhzBunO1ssZVa_2esp6o"
+          "current_key": "AIzaSyB5vuf5ecCvISRm_GUoldpq_sqfe4_UICo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:716239401584:android:7d452da6b1f9a4d14efab5",
+        "android_client_info": {
+          "package_name": "com.example.project_akhir"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5vuf5ecCvISRm_GUoldpq_sqfe4_UICo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:716239401584:android:06562bb8af8d24b14efab5",
+        "android_client_info": {
+          "package_name": "com.example.tikitaka"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5vuf5ecCvISRm_GUoldpq_sqfe4_UICo"
         }
       ],
       "services": {

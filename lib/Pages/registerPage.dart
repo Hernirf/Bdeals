@@ -330,7 +330,9 @@ class _SignUpState extends State<SignUp> {
                           print(_email.text);
                           if(User.userAuth!.email == _email.text){
                             await User.AddUserToFirebase(_username.text, _email.text, _pass.text,int.parse(_noWA.text));
-                            Navigator.pushNamed(context, "/splash");
+                            await User.setIDLogin();
+                            await User.getMyData();
+                            Navigator.pushNamed(context, "/home");
                             _username.dispose();
                             _email.dispose();
                             _pass.dispose();
