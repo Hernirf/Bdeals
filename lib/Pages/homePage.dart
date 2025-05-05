@@ -10,6 +10,8 @@ import 'package:bdeals/Pages/settingAkunPage.dart';
 import 'package:bdeals/Pages/settingBahasaPage.dart';
 import 'package:bdeals/Pages/createPage.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class beranda extends StatefulWidget {
   const beranda({super.key});
@@ -196,7 +198,7 @@ class _berandaState extends State<beranda> {
           padding: EdgeInsets.all(16),
           children: [
             Text(
-              'Pilih Kategori',
+              AppLocalizations.of(context)!.pilihkategori,
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             Divider(),
@@ -231,7 +233,7 @@ class _berandaState extends State<beranda> {
                   Navigator.pop(context); // Menutup drawer
                 });
               },
-              child: Text("Terapkan"),
+              child: Text(AppLocalizations.of(context)!.terapkan),
             ),
           ],
         ),
@@ -269,7 +271,7 @@ class _berandaState extends State<beranda> {
                       },
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        labelText: 'CARI PRODUK YANG ANDA INGINKAN',
+                        labelText: AppLocalizations.of(context)!.searchProduk,
                         labelStyle: TextStyle(color: Colors.grey),
                         icon: Icon(Icons.search), // Ikon pencarian di kiri
                        

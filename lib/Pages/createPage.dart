@@ -18,6 +18,8 @@ import 'package:bdeals/Provider/Products.dart';
 import 'package:bdeals/Provider/Users.dart';
 import 'package:provider/provider.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 
 
@@ -97,7 +99,7 @@ class _CreateProdukState extends State<CreateProduk> {
       // await post.uploadlagu();
       await post.addPostingan(User.idlogin,userName,_judul.text,SelectedCategory,_deskripsi.text,post.URlGambarProduk,noWAA,_alamat.text);
       post.showMessageBox(
-          context, 'BERHASIL', 'Produk anda berhasil di unggah');
+          context, 'BERHASIL', 'Produk anda berhasil di unggah','/home');
       setState(() {
         post.URlGambarProduk = '';
         post.selectedFiles  = File("");
@@ -186,7 +188,7 @@ class _CreateProdukState extends State<CreateProduk> {
               controller: _judul,
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.all(10),
-                labelText: "Judul/Nama Produk",
+                labelText: AppLocalizations.of(context)!.judul,
                 filled: true,
                 fillColor: Colors.amber[200],
               ),
@@ -210,7 +212,7 @@ class _CreateProdukState extends State<CreateProduk> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text("Kategori Produk"),
+                      child: Text(AppLocalizations.of(context)!.kategoriproduk),
                     ),
                     IconButton(
                       onPressed: () {
@@ -238,7 +240,7 @@ class _CreateProdukState extends State<CreateProduk> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Pilih Kategori:"),
+                  Text(AppLocalizations.of(context)!.pilihkategori),
                   RadioListTile<String>(
                     title: Text('Kuliner'),
                     value: 'Kuliner', // Menggunakan teks untuk setiap kategori
@@ -290,7 +292,7 @@ class _CreateProdukState extends State<CreateProduk> {
               keyboardType: TextInputType.multiline,
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.all(10),
-                labelText: "Deskripsi Produk",
+                labelText: AppLocalizations.of(context)!.deskripsiProduk,
                 filled: true,
                 fillColor: Colors.amber[200],
               ),
@@ -302,7 +304,7 @@ class _CreateProdukState extends State<CreateProduk> {
               controller: _alamat,
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.all(10),
-                labelText: "Alamat",
+                labelText: AppLocalizations.of(context)!.alamat,
                 filled: true,
                 suffixIcon: Icon(Icons.add_location_outlined),
                 fillColor: Colors.amber[200],

@@ -1,3 +1,4 @@
+import 'package:bdeals/Provider/Products.dart';
 import 'package:bdeals/Provider/Users.dart';
 import 'package:bdeals/model/ModelKomen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -14,32 +15,59 @@ class Comentprovider extends ChangeNotifier {
   Bdealskomen komenn = Bdealskomen();
   List<Bdealskomen> komenList = [];
   List<Bdealskomen> detailKomen = [];
+  // final post = Provider.of<ProductProvider>(context, listen: false);
 
  
   Future<void> addKomen(
-    String idPengguna,
-    String komen,
-    String idProduk,
-    String username,
-    double rating,
-    
-  ) async {
-    final CollectionReference Komencollect = FirebaseFirestore.instance.collection('Bdeals_Comment');
+  String idPengguna,
+  String komen,
+  String idProduk,
+  String username,
+  double rating,
+) async {
+  final CollectionReference komenCollect =
+      FirebaseFirestore.instance.collection('Bdeals_Comment');
 
-    try {
-      DocumentReference doc = await Komencollect.add({
+  try {
+    // Cek apakah user sudah pernah komentar untuk produk ini
+    final existingKomenQuery = await komenCollect
+        .where('IDPengguna', isEqualTo: idPengguna)
+        .where('IdProduk', isEqualTo: idProduk)
+        .limit(1)
+        .get();
+
+    if (existingKomenQuery.docs.isNotEmpty) {
+      // Kalau sudah ada komentar, update
+      final docId = existingKomenQuery.docs.first.id;
+
+      await komenCollect.doc(docId).update({
+        'Komen': komen,
+        'Rating': rating,
+        'Username': username, // opsional, kalau user bisa ganti username
+        'UpdatedAt': FieldValue.serverTimestamp(),
+      });
+
+      print('Komentar diperbarui.');
+    } else {
+      // Kalau belum ada, tambah baru
+      await komenCollect.add({
         'IDPengguna': idPengguna,
         'Komen': komen,
         'IdProduk': idProduk,
         'Username': username,
-        'Rating': rating
-        // 'judulpostingan': URlGambarProduk,
+        'Rating': rating,
+        'CreatedAt': FieldValue.serverTimestamp(),
       });
-    } catch (error) {
-      print('Error adding postingan: $error');
+
+      print('Komentar ditambahkan.');
     }
-    notifyListeners();
+  } catch (error) {
+    print('Error saat menambah/memperbarui komentar: $error');
   }
+
+  notifyListeners();
+}
+
 
 
   Future<void> getAllKomen() async {

@@ -3,9 +3,11 @@ import 'dart:math';
 import 'package:bdeals/Pages/tes.dart';
 import 'package:bdeals/Provider/Coment.dart';
 import 'package:bdeals/Provider/Products.dart';
+import 'package:bdeals/Provider/localProvider.dart';
 import 'package:bdeals/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:bdeals/Provider/Users.dart';
 // import 'package:bdeals/Provider/Products.dart';
@@ -22,6 +24,7 @@ import 'package:bdeals/Pages/profilePage.dart';
 import 'package:bdeals/Pages/settingPage.dart';
 import 'package:bdeals/Pages/settingAkunPage.dart';
 import 'package:bdeals/Pages/settingBahasaPage.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,6 +37,8 @@ void main() async {
         ChangeNotifierProvider(create: (context) => UserProvider()),
         ChangeNotifierProvider(create: (context) => ProductProvider()),
         ChangeNotifierProvider(create: (context) => Comentprovider()),
+        ChangeNotifierProvider(create: (context) => LocaleProvider()),
+
 
         // ChangeNotifierProvider(create: (context) => ThemeProvider()),
       ],
@@ -48,15 +53,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final User = Provider.of<UserProvider>(context, listen: false);
+    final locall = context.watch<LocaleProvider>().locale;
+;
 
 
     return MaterialApp(
       title: 'Bdeals',
       debugShowCheckedModeBanner: false,
+
       // theme: Provider.of<ThemeProvider>(context).getTheme(),
       routes: {
-        
         '/': (context) => loginPage(),
         'profilePage': (context) => Profile(),
         // 'createPage': (context) => CreateProduk(),
@@ -64,11 +72,11 @@ class MyApp extends StatelessWidget {
         '/splash': (context) => SplashScreen(),
         '/home': (context) => beranda(),
 
-        
-
-      
         //'/tes': (context) => tessW(),
       },
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: locall,
       initialRoute: '/',
     );
   }

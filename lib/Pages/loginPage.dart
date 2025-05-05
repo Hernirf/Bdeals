@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:bdeals/Provider/Users.dart';
 import 'package:bdeals/widgets/snackBar.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class loginPage extends StatefulWidget {
   const loginPage({super.key});
@@ -27,7 +29,7 @@ class _SignInState extends State<loginPage> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         toolbarHeight: 0,
-        backgroundColor: Color.fromARGB(255, 29, 72, 106),
+        backgroundColor:Colors.blue,
       ),
       body: Center(
         child: ListView(
@@ -90,7 +92,7 @@ class _SignInState extends State<loginPage> {
                         EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
                     labelText: 'Email',
                     labelStyle: const TextStyle(
-                      color: Color.fromARGB(255, 41, 179, 173),
+                      color:Colors.blue,
                       fontSize: 16,
                       fontWeight: FontWeight.w400,
                     ),
@@ -102,14 +104,14 @@ class _SignInState extends State<loginPage> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: const BorderSide(
-                        color: Color.fromARGB(255, 41, 179, 173),
+                        color: Colors.blue,
                         width: 1.5,
                       ),
                       borderRadius: BorderRadius.circular(5),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: const BorderSide(
-                        color: Color.fromARGB(255, 41, 179, 173),
+                        color: Colors.blue,
                         width: 1,
                       ),
                       borderRadius: BorderRadius.circular(10),
@@ -133,13 +135,13 @@ class _SignInState extends State<loginPage> {
                     floatingLabelBehavior: FloatingLabelBehavior.always,
                     contentPadding:
                         EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
-                    labelText: 'Password',
+                    labelText: AppLocalizations.of(context)!.pass,
                     labelStyle: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
-                      color: Color.fromARGB(255, 41, 179, 173),
+                      color: Colors.blue,
                     ),
-                    hintText: 'Password',
+                    hintText: AppLocalizations.of(context)!.pass,
                     hintStyle: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
@@ -147,13 +149,13 @@ class _SignInState extends State<loginPage> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Color.fromARGB(255, 41, 179, 173),
+                        color:Colors.blue,
                         width: 1.5,
                       ),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Color.fromARGB(255, 41, 179, 173),
+                        color:Colors.blue,
                         width: 1,
                       ),
                       borderRadius: BorderRadius.circular(10),
@@ -161,7 +163,7 @@ class _SignInState extends State<loginPage> {
                     suffixIcon: IconButton(
                       icon: Icon(
                         _obscureText ? Icons.visibility : Icons.visibility_off,
-                        color: Color.fromARGB(255, 41, 179, 173),
+                        color:Colors.blue,
                       ),
                       onPressed: () {
                         setState(() {
@@ -185,7 +187,7 @@ class _SignInState extends State<loginPage> {
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size(0, 50),
                     foregroundColor: Color.fromARGB(255, 18, 45, 66),
-                    backgroundColor: Color.fromARGB(255, 29, 72, 106),
+                    backgroundColor: Colors.orange,
                     padding: const EdgeInsets.symmetric(horizontal: 90),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
@@ -195,7 +197,7 @@ class _SignInState extends State<loginPage> {
                     await User.login(_email.value.text, _pass.value.text);
                     print(User.userAuth!.email);
                     if (_email.text == "" || _pass.text == ""){
-                      Snackbarup.showSnackbar(context, "username dan password harus terisi");
+                      Snackbarup.showSnackbar(context, AppLocalizations.of(context)!.harusterisi);
                     }
                     if (User.userAuth != null) {
                       if (User.userAuth!.email == _email.text) {
@@ -207,9 +209,12 @@ class _SignInState extends State<loginPage> {
                         _pass.dispose();
                       }
                     }
+                    if(User.userAuth == null){
+                      Snackbarup.showSnackbar(context, AppLocalizations.of(context)!.userpassSalah);
+                    }
                   },
-                  child: const Text(
-                    "Sign In",
+                  child:  Text(
+                    AppLocalizations.of(context)!.login,
                     style: TextStyle(
                         fontFamily: 'Raleway',
                         color: Colors.white,
@@ -224,8 +229,8 @@ class _SignInState extends State<loginPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  "Already has an account? ",
+                 Text(
+                  AppLocalizations.of(context)!.tanyaAkun,
                   style: TextStyle(
                     fontFamily: 'Raleway',
                     fontSize: 13,
@@ -237,10 +242,10 @@ class _SignInState extends State<loginPage> {
                     Navigator.pushNamed(context, '/signUp');
                   },
                   child: Text(
-                    "Sign Up",
+                    AppLocalizations.of(context)!.register,
                     style: TextStyle(
                       fontFamily: 'Raleway',
-                      color: Color.fromARGB(255, 41, 179, 173),
+                      color: Colors.blue,
                       fontSize: 13,
                       decoration: TextDecoration.underline,
                     ),

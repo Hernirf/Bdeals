@@ -15,6 +15,8 @@ import 'package:bdeals/Pages/createPage.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class detailproduk extends StatefulWidget {
   const detailproduk({super.key});
@@ -125,7 +127,7 @@ class _detailprodukState extends State<detailproduk> {
       // await post.uploadlagu();
       await komenmprovider.addKomen(User.idlogin, _komentar.text,
           post.Detailproduk.idProduk, userName, ratingg);
-      post.showMessageBox(context, 'BERHASIL', 'Komen anda berhasil di unggah');
+      post.showMessageBox(context,'Berhasil','Komen ada telah di Upload', '/home');
       setState(() {});
       // Navigator.pushNamed(context, '/bottomnav');
     }
@@ -186,7 +188,7 @@ class _detailprodukState extends State<detailproduk> {
                       SizedBox(
                         width: 10,
                       ),
-                      Text("Hubungi Penjual")
+                      Text(AppLocalizations.of(context)!.hubungiPenjual)
                     ],
                   ),
                 ),
@@ -197,7 +199,7 @@ class _detailprodukState extends State<detailproduk> {
             Padding(
               padding: EdgeInsets.only(top: 50, bottom: 10, left: 110),
               child: Text(
-                "Komentar Pengguna",
+                AppLocalizations.of(context)!.komentarPengguna,
                 style: TextStyle(fontSize: 20),
               ),
             ),
@@ -215,7 +217,7 @@ class _detailprodukState extends State<detailproduk> {
                     height: 30,
                   ),
                   Text(
-                    "Berikan Penilaian",
+                    AppLocalizations.of(context)!.berikanPenilaian,
                     style: TextStyle(fontSize: 20),
                   ),
                   Padding(
@@ -229,7 +231,7 @@ class _detailprodukState extends State<detailproduk> {
                           keyboardType: TextInputType.multiline,
                           controller: _komentar,
                           decoration: InputDecoration(
-                            hintText: "Komentar Pengguna",
+                            hintText: AppLocalizations.of(context)!.komentarPengguna,
                             contentPadding: EdgeInsets.all(20),
                             border: InputBorder.none, // Menghilangkan border
                           ),
@@ -288,7 +290,7 @@ class _detailprodukState extends State<detailproduk> {
                         padding: const EdgeInsets.all(50),
                         child: ElevatedButton(
                           onPressed: _upload,
-                          child: Text("KIRIM"),
+                          child: Text(AppLocalizations.of(context)!.kirim),
                           style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.orange,
                               foregroundColor: Colors.white,

@@ -65,10 +65,11 @@ class ProductProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void showMessageBox(BuildContext context, String title, String msg) {
+  void showMessageBox(BuildContext context, String title, String msg, String pages) {
     MessageBox msgBox = MessageBox(
       title: title,
       message: msg,
+      page: pages,
     );
 
     showDialog(
@@ -270,8 +271,9 @@ produksList.clear();
 class MessageBox extends StatelessWidget {
   final String title;
   final String message;
+  final String page;
 
-  MessageBox({required this.title, required this.message});
+  MessageBox({required this.title, required this.message, required this.page});
 
   @override
   Widget build(BuildContext context) {
@@ -281,7 +283,7 @@ class MessageBox extends StatelessWidget {
       actions: <Widget>[
         TextButton(
           onPressed: () {
-            Navigator.pushNamed(context, '/home');
+            Navigator.pushNamed(context, page);
           },
           child: Text('OK'),
         ),

@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:bdeals/Provider/Users.dart';
 import 'package:bdeals/widgets/snackBar.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 
 class SignUp extends StatefulWidget {
@@ -91,13 +93,13 @@ class _SignUpState extends State<SignUp> {
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   contentPadding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
-                  labelText: 'Username',
+                  labelText: AppLocalizations.of(context)!.username,
                   labelStyle: const TextStyle(
-                    color: Color.fromARGB(255, 41, 179, 173),
+                    color: Colors.blue,
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
                   ),
-                  hintText: 'Username',
+                  hintText: AppLocalizations.of(context)!.username,
                   hintStyle: const TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
@@ -105,14 +107,14 @@ class _SignUpState extends State<SignUp> {
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 41, 179, 173),
+                      color:  Colors.blue,
                       width: 1.5,
                     ),
                     borderRadius: BorderRadius.circular(5),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 41, 179, 173),
+                      color:  Colors.blue,
                       width: 1,
                     ),
                     borderRadius: BorderRadius.circular(10),
@@ -133,7 +135,7 @@ class _SignUpState extends State<SignUp> {
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
                   labelText: 'Email',
                   labelStyle: const TextStyle(
-                    color: Color.fromARGB(255, 41, 179, 173),
+                    color:  Colors.blue,
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
                   ),
@@ -145,14 +147,14 @@ class _SignUpState extends State<SignUp> {
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 41, 179, 173),
+                      color: Colors.blue,
                       width: 1.5,
                     ),
                     borderRadius: BorderRadius.circular(5),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 41, 179, 173),
+                      color: Colors.blue,
                       width: 1,
                     ),
                     borderRadius: BorderRadius.circular(10),
@@ -171,13 +173,13 @@ class _SignUpState extends State<SignUp> {
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   contentPadding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
-                  labelText: 'No WhatsApp',
+                  labelText: AppLocalizations.of(context)!.noWAA,
                   labelStyle: const TextStyle(
-                    color: Color.fromARGB(255, 41, 179, 173),
+                    color: Colors.blue,
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
                   ),
-                  hintText: 'No WhatsApp',
+                  hintText: AppLocalizations.of(context)!.noWAA,
                   hintStyle: const TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
@@ -185,14 +187,14 @@ class _SignUpState extends State<SignUp> {
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 41, 179, 173),
+                      color: Colors.blue,
                       width: 1.5,
                     ),
                     borderRadius: BorderRadius.circular(5),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: const BorderSide(
-                      color: Color.fromARGB(255, 41, 179, 173),
+                      color: Colors.blue,
                       width: 1,
                     ),
                     borderRadius: BorderRadius.circular(10),
@@ -211,13 +213,13 @@ class _SignUpState extends State<SignUp> {
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   contentPadding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
-                  labelText: 'Password',
+                  labelText: AppLocalizations.of(context)!.pass,
                   labelStyle: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
-                    color: Color.fromARGB(255, 41, 179, 173),
+                    color: Colors.blue,
                   ),
-                  hintText: 'Password',
+                  hintText: AppLocalizations.of(context)!.pass,
                   hintStyle: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
@@ -225,13 +227,13 @@ class _SignUpState extends State<SignUp> {
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Color.fromARGB(255, 41, 179, 173),
+                      color: Colors.blue,
                       width: 2,
                     ),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Color.fromARGB(255, 41, 179, 173),
+                      color: Colors.blue,
                       width: 1,
                     ),
                     borderRadius: BorderRadius.circular(10),
@@ -250,13 +252,13 @@ class _SignUpState extends State<SignUp> {
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   contentPadding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
-                  labelText: 'Confirm Password',
+                  labelText: AppLocalizations.of(context)!.confirmPass,
                   labelStyle: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
-                    color: Color.fromARGB(255, 41, 179, 173),
+                    color:Colors.blue,
                   ),
-                  hintText: 'Password',
+                  hintText: AppLocalizations.of(context)!.pass,
                   hintStyle: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
@@ -264,13 +266,13 @@ class _SignUpState extends State<SignUp> {
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Color.fromARGB(255, 41, 179, 173),
+                      color:Colors.blue,
                       width: 2,
                     ),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Color.fromARGB(255, 41, 179, 173),
+                      color: Colors.blue,
                       width: 1,
                     ),
                     borderRadius: BorderRadius.circular(10),
@@ -283,8 +285,8 @@ class _SignUpState extends State<SignUp> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  "By Signing Up, you agree to our ",
+                 Text(
+                  AppLocalizations.of(context)!.pernyataanDaftar,
                   style: TextStyle(
                     fontFamily: 'Raleway',
                     fontSize: 13,
@@ -294,7 +296,7 @@ class _SignUpState extends State<SignUp> {
                 InkWell(
                   onTap: () {},
                   child: Text(
-                    "Terms & Privacy Policy",
+                    AppLocalizations.of(context)!.tanya2,
                     style: TextStyle(
                       fontFamily: 'Raleway',
                       color: Color.fromARGB(255, 18, 45, 66),
@@ -313,7 +315,7 @@ class _SignUpState extends State<SignUp> {
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size(0, 50),
                     foregroundColor: Color.fromARGB(255, 18, 45, 66),
-                    backgroundColor: Color.fromARGB(255, 29, 72, 106),
+                    backgroundColor:Colors.orange,
                     padding: const EdgeInsets.symmetric(horizontal: 90),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
@@ -321,7 +323,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                   onPressed: () async {
                     if(_email.text == "" || _username.text == "" || _pass.text == ""|| _conpass.text ==""|| _noWA.text ==""){
-                      Snackbarup.showSnackbar(context, "kolom tidak boleh kosong");
+                      Snackbarup.showSnackbar(context, AppLocalizations.of(context)!.harusterisi);
                     }
                     else if(_pass.text == _conpass.text){
                         User.signUp(_email.text, _pass.text);
@@ -341,8 +343,8 @@ class _SignUpState extends State<SignUp> {
                         }
                     }
                   },
-                  child: const Text(
-                    "Sign Up",
+                  child:  Text(
+                    AppLocalizations.of(context)!.register,
                     style: TextStyle(
                         fontFamily: 'Raleway',
                         color: Colors.white,
@@ -356,8 +358,8 @@ class _SignUpState extends State<SignUp> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  "Already has an account? ",
+                 Text(
+                  AppLocalizations.of(context)!.tanyaAkun,
                   style: TextStyle(
                     fontFamily: 'Raleway',
                     fontSize: 13,
@@ -369,10 +371,10 @@ class _SignUpState extends State<SignUp> {
                     Navigator.pushNamed(context, '/');
                   },
                   child: Text(
-                    "Sign In",
+                    AppLocalizations.of(context)!.login,
                     style: TextStyle(
                       fontFamily: 'Raleway',
-                      color: Color.fromARGB(255, 41, 179, 173),
+                      color: Colors.blue,
                       fontSize: 13,
                       decoration: TextDecoration.underline,
                     ),

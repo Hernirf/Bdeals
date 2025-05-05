@@ -7,6 +7,8 @@ import 'package:bdeals/Pages/detailprodukpage.dart';
 import 'package:bdeals/Pages/settingPage.dart';
 import 'package:bdeals/Pages/createPage.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -39,9 +41,9 @@ class _ProfileState extends State<Profile> {
 
     int banyakProduk = postProvider.MyProduct.length;
 
-    if (banyakProduk == 0) {
-      return const Center(child: CircularProgressIndicator());
-    }
+    // if (banyakProduk == 0) {
+    //   return const Center(child: CircularProgressIndicator());
+    // }
 
     return Scaffold(
       key: _scaffoldKey,
@@ -85,7 +87,12 @@ class _ProfileState extends State<Profile> {
                     const SizedBox(height: 20),
                     CircleAvatar(
                       radius: 60,
-                      backgroundColor: Colors.white,
+                      backgroundColor: Colors.black,
+                      child: Icon(
+                        Icons.person,
+                        size: 60,
+                        color: Colors.white, // bebas warnanya
+                      ),
                     ),
                     const SizedBox(height: 15),
                     Text(
@@ -97,12 +104,12 @@ class _ProfileState extends State<Profile> {
                       userProvider.userLogin.noWA.toString(),
                       style: const TextStyle(fontSize: 16, color: Colors.grey),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 10),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
                       child: Text(
-                        "Ini adalah bio pengguna. Bio dapat berisi deskripsi singkat tentang pengguna.",
+                        userProvider.userLogin.bio,
                         textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 14),
+                        style: const TextStyle(fontSize: 14),
                       ),
                     ),
                     const Divider(),

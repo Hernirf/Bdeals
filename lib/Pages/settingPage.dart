@@ -5,6 +5,8 @@ import 'package:bdeals/Provider/Users.dart';
 import 'package:bdeals/model/ModelUser.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class PengaturanPage extends StatelessWidget {
   const PengaturanPage({super.key});
@@ -15,7 +17,7 @@ class PengaturanPage extends StatelessWidget {
     
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pengaturan'),
+        title:  Text(AppLocalizations.of(context)!.pengaturan),
         backgroundColor: Colors.orange,
       ),
       body: Padding(
@@ -26,7 +28,7 @@ class PengaturanPage extends StatelessWidget {
             TextField(
               decoration: InputDecoration(
                 prefixIcon: const Icon(Icons.search),
-                hintText: 'Cari pengaturan...',
+                hintText: AppLocalizations.of(context)!.caripengaturan,
                 filled: true,
                 fillColor: Colors.grey[200],
                 border: OutlineInputBorder(
@@ -38,7 +40,7 @@ class PengaturanPage extends StatelessWidget {
             const SizedBox(height: 30),
             ListTile(
               leading: const Icon(Icons.person),
-              title: const Text("Pengaturan Akun"),
+              title:  Text(AppLocalizations.of(context)!.pengaturanAkun),
               trailing: const Icon(Icons.arrow_forward_ios),
               onTap: () {
                 Navigator.push(
@@ -50,7 +52,7 @@ class PengaturanPage extends StatelessWidget {
             const Divider(),
             ListTile(
               leading: const Icon(Icons.language),
-              title: const Text("Pengaturan Bahasa"),
+              title: Text(AppLocalizations.of(context)!.pengaturanBahasa),
               trailing: const Icon(Icons.arrow_forward_ios),
               onTap: () {
                 Navigator.push(
@@ -62,11 +64,13 @@ class PengaturanPage extends StatelessWidget {
             const Divider(),
             ListTile(
               leading: const Icon(Icons.logout, color: Colors.red),
-              title: const Text(
-                "Logout",
+              title:  Text(
+                AppLocalizations.of(context)!.logout,
                 style: TextStyle(color: Colors.red),
               ),
               onTap: () {
+                User.signOut();
+                
                 User.userLogin = Userr();
                  Navigator.push(
                   context,
